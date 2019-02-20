@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button id="fuck">fuck</button>
+    <img id="id_img"></img>
+    <p>Press mouse and release here.</p>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    // jQuery插件。一个jQuery对象，而不是直接调用。
+    jQuery.fn.simulateKeyPress = function(character) {
+        // 内部调用jQuery.event.trigger
+        // 参数有 (Event, data, elem). 最后一个参数是非常重要的的！
+        jQuery(this).trigger({ type: 'keypress', which: character.charCodeAt(0) });
+    };
+    
+    //页面调用
+    jQuery(document).ready( function($) {
+        // 绑定事件处理程序
+        $( 'body' ).keypress( function(e) {
+            alert( String.fromCharCode( e.which ) );
+            console.log(e);
+        });
+        // 模拟按键了 x
+        $( 'body' ).simulateKeyPress('x');
+    });
+
+    $("p").mouseup(function() {
+        $( this ).append( "<span style='color:#f00;'>Mouse up.</span>" );
+    })
+    $("p").mousedown(function() {
+        $( this ).append( "<span style='color:#00f;'>Mouse down.</span>" );
+    });
+    $("body").mousemove(function() {
+        $("p").append( "<span style='color:#00f;'>Mouse move.</span>" )
+    });
+    document.body.onmousedown = function(){alert("test");};
+
+</script>
+</html>
