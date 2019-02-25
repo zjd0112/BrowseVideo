@@ -12,9 +12,9 @@
 // Your code here...
 const NotificationInstance = Notification || window.Notification;
 const url_chaojiying = 'http://upload.chaojiying.net/Upload/Processing.php';
-const userName = 'zjd0112';
-const passWord = '483232';
-const softId = '898619';
+const userName = 'xxxxxx';
+const passWord = 'xxxxxx';
+const softId = 'xxxxxx';
 const codeType = '9104';
 const len_min = '0';
 
